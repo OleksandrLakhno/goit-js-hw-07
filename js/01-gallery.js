@@ -20,6 +20,9 @@ createGallery.insertAdjacentHTML('beforeend', allGalleryEl);
 createGallery.addEventListener('click', createModal);
 
 function createModal(event) { 
+    if (event.currentTarget === event.target) { 
+                    return;
+                }
     event.preventDefault();
 
     const selectedImg = event.target.dataset.source;
@@ -37,9 +40,11 @@ function createModal(event) {
     instance.show()
     
     function onModalClick(event) { 
-        if (event.code === 'Escape')
+        if (event.code === 'Escape') { 
             instance.close();
+        } 
     };
+    
 }
 
   
